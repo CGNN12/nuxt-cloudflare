@@ -6,8 +6,9 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "nuxt-cloudflare-db",
+      "database_name": "auth-project-db",
       "database_id": "020e66c1-c3c5-4c6b-9f64-b7d5c1fd1e20",
+      "migrations_dir": "server/db/migrations/sqlite",
     },
   ],
 }

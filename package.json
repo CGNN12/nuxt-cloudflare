@@ -11,7 +11,8 @@
     "lint": "eslint . --max-warnings 0 && prettier . --check && vue-tsc --noEmit && nuxt typecheck",
     "format": "eslint --fix . && prettier . --write",
     "db:generate": "nuxt db generate",
-    "wrangler:deploy": "wrangler --cwd dist pages deploy"
+    "wrangler:deploy": "wrangler --cwd dist pages deploy",
+    "wrangler:migrate": "wrangler d1 migrations apply auth-project-db --remote"
   },
   "dependencies": {
     "@libsql/client": "^0.17.0",
