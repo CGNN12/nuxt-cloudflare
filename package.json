@@ -1,0 +1,37 @@
+{
+  "name": "nuxt-cloudflare",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint . --max-warnings 0 && prettier . --check && vue-tsc --noEmit && nuxt typecheck",
+    "format": "eslint --fix . && prettier . --write",
+    "db:generate": "nuxt db generate",
+    "wrangler:deploy": "wrangler --cwd dist pages deploy"
+  },
+  "dependencies": {
+    "@libsql/client": "^0.17.0",
+    "@nuxt/eslint": "^1.12.1",
+    "@nuxt/ui": "^4.3.0",
+    "@nuxthub/core": "^0.10.4",
+    "drizzle-kit": "^0.31.8",
+    "drizzle-orm": "^0.45.1",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "nuxt": "^4.2.2",
+    "nuxt-auth-utils": "^0.5.27",
+    "prettier": "^3.8.0",
+    "typescript": "^5.9.3",
+    "vue": "^3.5.27",
+    "vue-router": "^4.6.4",
+    "wrangler": "^4.59.2",
+    "zod": "^4.3.5"
+  },
+  "devDependencies": {
+    "vue-tsc": "^3.2.2"
+  }
+}
