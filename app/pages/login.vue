@@ -13,14 +13,14 @@ const providers = [
     label: "Google",
     icon: "i-simple-icons-google",
     onClick: () => {
-      window.location.href = "/api/auth/google";
+      window.location.href = "api/auth/google";
     },
   },
   {
     label: "GitHub",
     icon: "i-simple-icons-github",
     onClick: () => {
-      window.location.href = "/api/auth/github";
+      window.location.href = "api/auth/github";
     },
   },
 ];
@@ -29,7 +29,7 @@ const isRegistered = useCookie<boolean>("is_registered");
 
 async function login() {
   try {
-    await $fetch("/api/auth/login", {
+    await $fetch("api/auth/login", {
       method: "POST",
       body: credentials,
     });
