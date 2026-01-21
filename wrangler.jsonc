@@ -1,3 +1,4 @@
+// prettier-ignore
 {
   // Cloudflare Pages configuration
   "name": "nuxt-cloudflare",
@@ -8,7 +9,7 @@
       "binding": "DB",
       "database_name": "auth-project-db",
       "database_id": "020e66c1-c3c5-4c6b-9f64-b7d5c1fd1e20",
-      "migrations_dir": "server/db/migrations/sqlite",
-    },
-  ],
+      "migrations_dir": "server/db/migrations/sqlite"
+    }
+  ]
 }
