@@ -4,7 +4,6 @@
   "name": "nuxt-cloudflare",
   "compatibility_date": "2025-07-15",
   "compatibility_flags": ["nodejs_compat"],
-  "account_id": "f3e70b7f9d227b9d84d2f59b7f665a41",
   "d1_databases": [
     {
       "binding": "DB",
