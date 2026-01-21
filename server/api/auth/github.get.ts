@@ -1,9 +1,9 @@
-/* import type { H3Event, EventHandlerRequest } from "h3";
+import type { H3Event, EventHandlerRequest } from "h3";
 import { schema } from "hub:db";
-import { eq } from "drizzle-orm"; */
+import { eq } from "drizzle-orm";
 
 export default defineOAuthGitHubEventHandler({
-  /*   async onSuccess(
+  async onSuccess(
     event: H3Event<EventHandlerRequest>,
     {
       user,
@@ -46,5 +46,5 @@ export default defineOAuthGitHubEventHandler({
   onError(event: H3Event<EventHandlerRequest>, error: unknown) {
     console.error("Github Login Error:", error);
     return sendRedirect(event, "/login");
-  }, */
+  },
 });

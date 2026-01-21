@@ -1,9 +1,9 @@
-/* import type { H3Event, EventHandlerRequest } from "h3";
+import type { H3Event, EventHandlerRequest } from "h3";
 import { eq } from "drizzle-orm";
-import { schema } from "hub:db"; */
+import { schema } from "hub:db";
 
 export default defineOAuthGoogleEventHandler({
-  /*   async onSuccess(
+  async onSuccess(
     event: H3Event<EventHandlerRequest>,
     {
       user,
@@ -53,5 +53,5 @@ export default defineOAuthGoogleEventHandler({
   onError(event: H3Event<EventHandlerRequest>, error: unknown) {
     console.error("Google Login Error:", error);
     return sendRedirect(event, "/login");
-  }, */
+  },
 });
