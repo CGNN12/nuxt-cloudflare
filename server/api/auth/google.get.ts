@@ -9,9 +9,10 @@ export default defineOAuthGoogleEventHandler({
       user,
     }: {
       user: {
-        sub: unknown;
+        sub: string;
         email: string;
         name: string;
+        googleId: string;
       };
     },
   ) {
