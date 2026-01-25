@@ -24,6 +24,8 @@ useSeoMeta({
 const { loggedIn, clear } = useUserSession();
 const isRegistered = useCookie<boolean>("is_registered", {
   default: () => false,
+  sameSite: "lax",
+  httpOnly: false,
 });
 
 async function logout() {
