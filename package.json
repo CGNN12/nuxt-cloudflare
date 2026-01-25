@@ -33,6 +33,6 @@
   },
   "devDependencies": {
     "vue-tsc": "^3.2.2",
-    "wrangler": "^4.59.3"
+    "wrangler": "^4.60.0"
   }
 }
