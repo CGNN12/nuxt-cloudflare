@@ -1,13 +1,20 @@
 import type { H3Event, EventHandlerRequest } from "h3";
-import { schema } from "hub:db";
 import { eq } from "drizzle-orm";
+import { schema } from "hub:db";
 
 export default defineOAuthGitHubEventHandler({
   async onSuccess(
     event: H3Event<EventHandlerRequest>,
     {
       user,
-    }: { user: { email: string; name: string; sub: string; githubId: string } },
+    }: {
+      user: {
+        sub: string;
+        email: string;
+        name: string;
+        githubId: string;
+      };
+    },
   ) {
     let existingUser = await db
       .select()
@@ -37,8 +44,9 @@ export default defineOAuthGitHubEventHandler({
 
     await setUserSession(event, {
       user: {
-        email: user.email,
-        name: user.name,
+        id: existingUser.id,
+        email: existingUser.email,
+        name: existingUser.name,
       },
     });
     return sendRedirect(event, "/main");
