@@ -11,7 +11,11 @@ export default defineEventHandler(async (event) => {
     .where(eq(users.email, email))
     .get();
 
-  if (user && (await verifyPassword(user.password!, password))) {
+  if (
+    user &&
+    user.password &&
+    (await verifyPassword(user.password, password))
+  ) {
     await setUserSession(event, {
       user: {
         id: user.id,
