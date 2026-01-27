@@ -29,7 +29,7 @@ const isRegistered = useCookie<boolean>("is_registered");
 
 async function login() {
   try {
-    await $fetch("/api/auth/register", {
+    await $fetch("/api/auth/login", {
       method: "POST",
       body: credentials,
     });
