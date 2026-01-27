@@ -4,6 +4,11 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/main.css"],
   modules: ["@nuxt/eslint", "@nuxt/ui", "@nuxthub/core", "nuxt-auth-utils"],
+  auth: {
+    hash: {
+      scrypt: {},
+    },
+  },
   nitro: {
     preset: "cloudflare-pages",
   },
