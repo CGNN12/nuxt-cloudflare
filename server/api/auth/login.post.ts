@@ -11,22 +11,22 @@ export default defineEventHandler(async (event) => {
     .where(eq(users.email, email))
     .get();
 
-  if (
-    user &&
-    user.password &&
-    (await verifyPassword(user.password, password))
-  ) {
+  console.log("Gelen Email:", email);
+  console.log("DB'den Gelen User:", user);
+
+  if (!user) {
+    throw createError({ status: 401, message: "Böyle bir kullanıcı yok!" });
+  }
+
+  const isPasswordValid = await verifyPassword(user.password!, password);
+  console.log("Şifre Doğrulama:", isPasswordValid);
+
+  if (isPasswordValid) {
     await setUserSession(event, {
-      user: {
-        id: user.id,
-        email: user.email,
-        name: user.name,
-      },
+      user: { id: user.id, email: user.email, name: user.name },
     });
     return {};
   }
-  throw createError({
-    status: 401,
-    message: "Bad credentials",
-  });
+
+  throw createError({ status: 401, message: "Şifre yanlış usta!" });
 });
