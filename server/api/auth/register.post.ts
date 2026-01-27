@@ -19,6 +19,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const hashedPassword = await hashPassword(body.password);
+
   const user = await db
     .insert(users)
     .values({

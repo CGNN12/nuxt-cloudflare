@@ -12,8 +12,6 @@ export default defineEventHandler(async (event) => {
     .get();
 
   if (user && (await verifyPassword(user.password!, password))) {
-    // set the user session in the cookie
-    // this server util is auto-imported by the auth-utils module
     await setUserSession(event, {
       user: {
         id: user.id,
