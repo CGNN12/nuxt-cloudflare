@@ -14,6 +14,11 @@ export default defineEventHandler(async (event) => {
     throw createError({ status: 401, message: "Böyle bir kullanıcı yok!" });
   }
 
+  console.log("Input Password:", password);
+  console.log("DB Hash:", user.password);
+  const manualCheck = await verifyPassword(user.password!, password);
+  console.log("Manual Check Result:", manualCheck);
+
   const isPasswordValid = await verifyPassword(user.password!, password);
 
   if (isPasswordValid) {
