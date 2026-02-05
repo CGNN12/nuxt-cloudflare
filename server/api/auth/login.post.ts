@@ -28,5 +28,8 @@ export default defineEventHandler(async (event) => {
     return {};
   }
 
-  throw createError({ status: 401, message: "Şifre yanlış usta!" });
+  throw createError({
+    status: 401,
+    message: `DB'deki Hash: ${user.password?.substring(0, 10)}... | Girilen: ${password}`,
+  });
 });
