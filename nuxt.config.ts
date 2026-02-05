@@ -6,7 +6,12 @@ export default defineNuxtConfig({
   modules: ["@nuxt/eslint", "@nuxt/ui", "@nuxthub/core", "nuxt-auth-utils"],
   auth: {
     hash: {
-      scrypt: {},
+      scrypt: {
+        // Cloudflare Workers uyumlu parametreler
+        cost: 16384, // N parametresi (default: 16384)
+        blockSize: 8, // r parametresi
+        parallelization: 1, // p parametresi
+      },
     },
   },
   nitro: {
