@@ -1,4 +1,4 @@
-import {
+/*import {
   hashPasswordPBKDF2,
   verifyPasswordPBKDF2,
 } from "~~/server/utils/password";
@@ -26,3 +26,5 @@ export default defineEventHandler(async () => {
     hashLength: hashedPassword.length,
   };
 });
+
+*/

@@ -1,6 +1,6 @@
 import type { H3Event, EventHandlerRequest } from "h3";
 import { eq } from "drizzle-orm";
-import { schema } from "hub:db";
+import { users } from "~~/server/db/schema";
 
 export default defineOAuthGitHubEventHandler({
   async onSuccess(
@@ -18,20 +18,20 @@ export default defineOAuthGitHubEventHandler({
   ) {
     let existingUser = await db
       .select()
-      .from(schema.users)
-      .where(eq(schema.users.email, user.email))
+      .from(users)
+      .where(eq(users.email, user.email))
       .get();
 
     if (existingUser) {
       if (!existingUser.githubId) {
         await db
-          .update(schema.users)
+          .update(users)
           .set({ githubId: user.sub })
-          .where(eq(schema.users.id, existingUser.id));
+          .where(eq(users.id, existingUser.id));
       }
     } else {
       existingUser = await db
-        .insert(schema.users)
+        .insert(users)
         .values({
           email: user.email,
           name: user.name,
