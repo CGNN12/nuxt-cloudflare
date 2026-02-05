@@ -1,5 +1,6 @@
 import { users } from "~~/server/db/schema";
 import { eq } from "drizzle-orm";
+import { verifyPasswordPBKDF2 } from "~~/server/utils/password";
 
 export default defineEventHandler(async (event) => {
   const { email, password } = await readBody(event);
@@ -14,7 +15,7 @@ export default defineEventHandler(async (event) => {
     throw createError({ status: 401, message: "Böyle bir kullanıcı yok!" });
   }
 
-  const isPasswordValid = await verifyPassword(user.password!, password);
+  const isPasswordValid = await verifyPasswordPBKDF2(user.password!, password);
 
   if (isPasswordValid) {
     await setUserSession(event, {

@@ -1,6 +1,7 @@
 import { RegisterSchema } from "~~/shared/RegisterSchema";
 import { users } from "~~/server/db/schema";
 import { eq } from "drizzle-orm";
+import { hashPasswordPBKDF2 } from "~~/server/utils/password";
 
 export default defineEventHandler(async (event) => {
   const body = await readValidatedBody(event, RegisterSchema.parse);
@@ -18,7 +19,7 @@ export default defineEventHandler(async (event) => {
     });
   }
 
-  const hashedPassword = await hashPassword(body.password);
+  const hashedPassword = await hashPasswordPBKDF2(body.password);
 
   const user = await db
     .insert(users)
